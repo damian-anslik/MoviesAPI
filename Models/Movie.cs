@@ -8,7 +8,7 @@ public class Movie
     public int id {get; set;}
     
     [Required]
-    [MinLength(1, ErrorMessage = "Movie title cannot be empty")]
+    [MinLength(1, ErrorMessage = "Movie title length cannot be zero")]
     public string title {get; set;} = null!;
     
     [Required]
@@ -20,7 +20,7 @@ public class Movie
     [Required]
     public DateTime releaseDate {get; set;}
     
-    [Range(1, 10, ErrorMessage = "Movie rating can only be between one and ten")]
+    [Range(1, 10, ErrorMessage = "Movie rating must be in range 1 to 10")]
     public int? rating {get; set;}
 }
 
