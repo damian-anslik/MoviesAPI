@@ -25,7 +25,7 @@ public class MoviesController
                 genre = Genre.DOCUMENTARY, 
                 certification = Certification.PA, 
                 releaseDate = DateTime.Parse("2002-05-16"), 
-                rating = 0
+                rating = 4
                 },
             new Movie(){
                 id = 3,
