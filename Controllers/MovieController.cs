@@ -92,6 +92,6 @@ public class MoviesController
             .FindAll(movie => movie.title.ToLower().Split(" ").Contains(keyword)) // this is hacky...
             .Select(movie => new MovieDTO(movie.id, movie.title))
             .ToList();
-        return results;
+        return new OkObjectResult(results);
     }
 }
