@@ -21,6 +21,6 @@ public class Movie
     public DateTime releaseDate {get; set;}
     
     [Range(1, 10, ErrorMessage = "Movie rating can only be between one and ten")]
-    public int rating {get; set;}
+    public int? rating {get; set;}
 }
 

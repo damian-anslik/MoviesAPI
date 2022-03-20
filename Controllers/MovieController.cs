@@ -4,7 +4,7 @@ using MyMoviesApi.Models;
 namespace MyMoviesApi.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/v1/[controller]")]
 public class MoviesController
 {
     private List<Movie> movies { get; set; }
@@ -90,7 +90,10 @@ public class MoviesController
     {
         var results = movies
             .FindAll(movie => movie.title.ToLower().Split(" ").Contains(keyword)) // this is hacky...
-            .Select(movie => new MovieDTO(movie.id, movie.title))
+            .Select(movie => new MovieDTO(){
+                id = movie.id, 
+                title = movie.title
+            })
             .ToList();
         return new OkObjectResult(results);
     }
