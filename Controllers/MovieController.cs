@@ -7,7 +7,7 @@ namespace MyMoviesApi.Controllers;
 [Route("api/[controller]")]
 public class MoviesController
 {
-    private List<Movie> movies {get; set;}
+    private List<Movie> movies { get; set; }
     public MoviesController()
     {
         movies = new List<Movie>(){
