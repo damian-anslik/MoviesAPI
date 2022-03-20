@@ -1,22 +1,26 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace MyMoviesApi.Models;
 
 public class Movie
 {
+    [Key]  
     public int id {get; set;}
-    public string title {get; set;}
-    public string genre {get; set;}
+    
+    [Required]
+    [MinLength(1, ErrorMessage = "Movie title cannot be empty")]
+    public string title {get; set;} = null!;
+    
+    [Required]
+    public Genre genre {get; set;}
+    
+    [Required]
     public Certification certification {get; set;}
+    
+    [Required]
     public DateTime releaseDate {get; set;}
+    
+    [Range(1, 10, ErrorMessage = "Movie rating can only be between one and ten")]
     public int rating {get; set;}
-
-    public Movie(int _id, string _title, Genre _genre, Certification _certification, string _releaseDateString, int _rating)
-    {
-        id = _id;
-        title = _title;
-        genre = Enum.GetName(typeof(Genre), _genre)!.ToLowerInvariant();
-        certification = _certification;
-        releaseDate = DateTime.Parse(_releaseDateString); 
-        rating = _rating;
-    }
 }
 
